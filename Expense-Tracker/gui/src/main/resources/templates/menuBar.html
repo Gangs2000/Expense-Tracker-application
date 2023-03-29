@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Menu Bar</title>
+</head>
+<body style="background-color:#FBFBFB">
+    <div class="row">
+        <div class="col-sm">
+            <nav class="navbar navbar-expand-lg navbar-dark" style="padding:30px; background-color:#424369;">
+                <div class="collapse navbar-collapse">
+                    <div class="navbar-nav">
+                        <a class="navbar-brand" href="#" style="margin-top:0"><h5><i class="bi bi-file-text-fill"></i>&nbsp;&nbsp;Expense Tracker</h5></a>
+                            <a class="nav-link" href="/expense-tracker/app/gui/dashboard" style="color:white">Dashboard</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <div class="dropdown">
+                                    <a class="btn dropdown-toggle" href="#" role="button" id="add" data-bs-toggle="dropdown" style="background-color:#424369; color:white" aria-expanded="false">
+                                        Add
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                        <li><a class="dropdown-item" data-bs-toggle="modal" href="#addExpense">Add expense</a></li>
+                                        <li><a class="dropdown-item" data-bs-toggle="modal" href="#addMissingExpense">Add missing expense</a></li>
+                                    </ul>
+                                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <div class="dropdown">
+                                    <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" style="background-color:#424369; color:white" aria-expanded="false">
+                                        Explore options
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                        <li><a class="dropdown-item"  href="/expense-tracker/app/gui/fetchByDate">Get expense by date</a></li>
+                                        <li><a class="dropdown-item" href="/expense-tracker/app/gui/fetchBetween">Get expense for given duration</a></li>
+                                        <li><a class="dropdown-item" href="/expense-tracker/app/gui/fetchMonthlyExpense">Get monthly expense</a></li>
+                                        <li><a class="dropdown-item" href="/expense-tracker/app/gui/fetchYearlyExpense">Get yearly expense</a></li>                                        
+                                    </ul>
+                                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <div class="dropdown">
+                                    <a class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" style="background-color:#424369; color:white" aria-expanded="false">
+                                        Graph
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                        <li><a class="dropdown-item" href="/expense-tracker/app/gui/yearlyBarGraph">Yearly Bar Graph</a></li>
+                                        <li><a class="dropdown-item" href="/expense-tracker/app/gui/monthlyBarGraph">Monthly Bar Graph</a></li>
+                                    </ul>
+                                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </div>
+                    </div>
+                    <div class="col-sm">
+                        <h6 th:text="'Hello '+${session.sessionEmailId}" style="color:white; font-weight:bold; margin-left:50%"/>
+                    </div>
+                    <div class="col-sm">
+                        <a href="/logout"><button class="btn btn-primary" style="font-weight:bold; width:50%; margin-left:30%"><i class="bi bi-door-open-fill"></i>&nbsp;&nbsp;Logout</button></a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!--Model Box for Add new expense-->
+    <div class="modal fade" id="addExpense" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add new expense</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/expense-tracker/app/gui/addExpense" method="post">
+                        <label class="form-label">&nbsp;&nbsp; Add Notes : </label>
+                        <input type="textarea" class="form-control" name="notes" placeholder="Put notes to remember" autocomplete="off" required><br>
+                        <label class="form-label">&nbsp;&nbsp; Expensed Amount : </label>
+                        <input type="number" class="form-control" name="amount" placeholder="Enter amount in Rupees" min="1" autocomplete="off" required><br>
+                        <button type="submit" class="btn btn-primary" style="width:100%; font-weight:bold;">Add Expense</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Model Box for Add missing expense-->
+    <div class="modal fade" id="addMissingExpense" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add missing expense</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/expense-tracker/app/gui/addMissingExpense" method="post">
+                        <label class="form-label">&nbsp;&nbsp; Add Notes : </label>
+                        <input type="textarea" class="form-control" name="notes" placeholder="Put notes to remember" autocomplete="off" required><br>
+                        <label class="form-label">&nbsp;&nbsp; Expensed Amount : </label>
+                        <input type="number" class="form-control" name="amount" placeholder="Enter amount in Rupees" min="1" autocomplete="off" required><br>
+                        <label class="form-label">&nbsp;&nbsp; Pick missed date : </label>
+                        <input type="date" class="form-control" id="#dateValidation" name="missedDate" pattern="\d{2}-\d{2}-\d{4}" required><br>
+                        <button type="submit" class="btn btn-primary" style="width:100%; font-weight:bold;">Add Missing Expense</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

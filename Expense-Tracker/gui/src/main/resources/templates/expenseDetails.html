@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+  <title>Current and Overall expenses</title>
+  <style>
+    .highlight:hover{
+      background-color:#EBF1FC;
+     }
+    .badge{
+      font-size:16px;
+      color:black;
+      background-color:yellow;
+    }
+  </style>
+</head>
+<body style="background-color:#FBFBFB">
+  <div class="row highlight" style="padding:30px">
+    <div class="col-sm-6">
+      <div style="background-color:black; color:white; padding:30px;">
+        <p style="font-size:24px; font-weight:bold;">Overall expense till date</p>
+        <span>Overall amount expensed &nbsp;&nbsp;<span th:text="'Rs '+${session.overall}" class="badge"/></span>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div style="background-color:black; color:white; padding:30px">
+        <p style="font-size:24px; font-weight:bold;">Current expense till date</p>
+        <div class="row">
+          <div class="col-sm"><span>Today's &nbsp;&nbsp;<span th:text="'Rs '+${currentDay}" class="badge"/></span></div>
+          <div class="col-sm"><span>Current Month &nbsp;&nbsp;<span th:text="'Rs '+${currentMonth}" class="badge"/></span></div>
+          <div class="col-sm"><span>Current Year &nbsp;&nbsp;<span th:text="'Rs '+${currentYear}" class="badge"/></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
