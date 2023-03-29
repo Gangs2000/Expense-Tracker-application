@@ -12,10 +12,10 @@ Application is completely secure since all email ID's will be verified during th
 
 **Tech Stacks :**
 
-**Front end :** HTML and CSS
-**Back end :** Core Java and Java 17
-**Frameworks :** Bootstrap, AJAX ( for real data time refresh ), Spring boot
-**Databases :** SQL ( Postgres ) and NoSql ( MongoDB )
+   1. **Front end :** HTML and CSS
+   2. **Back end :** Core Java and Java 17
+   3. **Frameworks :** Bootstrap, AJAX ( for real data time refresh ), Spring boot
+   4. **Databases :** SQL ( Postgres ) and NoSql ( MongoDB )
 
 
 **Server and Microservices :**
