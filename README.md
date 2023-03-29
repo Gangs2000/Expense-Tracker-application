@@ -1,6 +1,6 @@
 # Expense-Tracker-application
 
-**Overview :**
+**Description :**
 
 Expense tracker application is used to track our daily expense. User have to add their own expense by creating an account for them. In the dashboard page many options are available and one of them is **Add expense** which helps user to add current day expense by submitting notes, expensed amount. If in case user wants to add missed expense details that can be done using **Add missing expense** option. User can view their current day, month, year and overall expenses. In addition to adding expense details it also allows user to filter their expense by **specific date, duration, specific month and specific year**. Any time data can be **edited or deleted** from the list. For graphical representation data will be displayed in **bar graph for both yearly and monthly data**. User will get an email as a daily report upon a day completion if the had expensed anything in previous day, Monthly and Yearly reports will also be triggered from running cronjobs.
 
@@ -32,7 +32,7 @@ Eureka server has been created and registed all running services with server. Av
 RabbitMq used to pass data between one microservice and another service, It make sures that service listener is up before transmitting the data. If listener data service is down data will store temprorily in queue so there won't be conflict during the obsence of microservice.
 
 
-**Glimpse from Expense tracker application :**
+**Snaps from Expense tracker application :**
 
 **Login and Registration :**
 
